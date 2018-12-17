@@ -21,6 +21,8 @@
 * git checkout -- 文件名  撤销未add过的（工作区）修改
 * git rm 文件名 删除版本库中的文件  删除后可以直接commit
 * 在master创造冲突
+* 创造一个冲突
+
 
 ### git flow复习
 
