@@ -7,6 +7,8 @@
 #### 先回忆一下自己记得的知识点
 
 * git add xxx  将文件提交到暂存区
+* git branch -d 分支名  删除分支
+* git branch -D 分支名   删除一个未合并过的分支
 * git commit -m'提交备注'  提交文件到当前分支   注意-m和''之间没有空格
 * git push    推送到远程仓库
 * git checkout 分支名    切换分支
@@ -17,12 +19,19 @@
 * git diff 查看修改内容
 * git log 查看历史记录
 * git log --pretty=oneline 查看简化后的历史记录信息
+* git log --graph 可以看到分支合并图
+* git log --graph --pretty=oneline --abbrev-commit 参数是可以添加的
 * git reset --hard HEAD^ 回到上一个版本每一个^表示一个版本，两个^就是回退两个版本 也可以用数字HEAD~1，HEAD~2。HEAD表示当前版本
 * git checkout -- 文件名  撤销未add过的（工作区）修改
 * git rm 文件名 删除版本库中的文件  删除后可以直接commit
-* 在master创造冲突
-* 创造一个冲突
-
+* git stash  把当前工作区的修改隐藏。
+* git stash list 查看隐藏的工作现场。
+* git stash apply 恢复隐藏的工作但是没有删除stash的内容
+* git stash drop 删除stash的内容
+* git stash pop 是恢复的同时把stash的内容也删了
+* git merge 分支名  把“分支名”合并到当前分支
+* git merge --no-ff git默认是采用快速合并，没有合并记录。--no-ff可以设置为普通合并，有记录
+* 关于“把当前分支合并到XX分支”，理解了之后这句话听起来怪怪的。其实是先切换到XX分支（当然可以顺手再pull一下别人的代码），然后在XX分支上合并你的分支，比如把dev合并到master分支，其实是先git checkout master,再git merge dev.我觉得说成在master分支上把dev合并更容易理解一些。
 
 ### git flow复习
 
