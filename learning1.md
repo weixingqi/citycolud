@@ -20,6 +20,7 @@
 * git reset --hard HEAD^ 回到上一个版本每一个^表示一个版本，两个^就是回退两个版本 也可以用数字HEAD~1，HEAD~2。HEAD表示当前版本
 * git checkout -- 文件名  撤销未add过的（工作区）修改
 * git rm 文件名 删除版本库中的文件  删除后可以直接commit
+* 创造一个冲突
 
 ### git flow复习
 
