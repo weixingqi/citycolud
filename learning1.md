@@ -17,6 +17,7 @@
 * git diff 查看修改内容
 * git log 查看历史记录
 * git log --pretty=oneline 查看简化后的历史记录信息
+* git reset --hard HEAD^ 回到上一个版本每一个^表示一个版本，两个^就是回退两个版本 也可以用数字HEAD~1，HEAD~2
 
 ### git flow复习
 
