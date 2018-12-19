@@ -31,6 +31,7 @@
 
 当前分支自动与唯一一个追踪分支进行合并
 
+* 最重要就是要理解pull的过程是分两步的。第一步是获取更改内容，这些更改内容可以独立的存在于一个临时分支，然后git fetch可以选择合并
 
 * git status 查看状态
 * git diff 查看修改内容
@@ -63,6 +64,42 @@
 
 #### 当前的了解，从master（发布版本）分支上切出develop（测试）分支，然后每个开发人员从develop分支上切出一个分支，完成一个功能后提交。
 
+>>* 在一个新项目开发需要的git操作
+>>* git clone ssh://user@host/path/to/repo.git  克隆仓库
+>>* git checkout -b develop origin/develop    建立develope分支的跟踪分支
+>>* git checkout -b some-feature develop   基于develope创建分支
+>>* git status  完成部分功能后进行提交操作
+>>* git add
+>>* git commit
+>>* 如果团队使用Pull Requests,就发合并请求，如果没有就合并到本地develope然后push到中央仓库
+>>* git pull origin develop  先把最新的内容拉下来，如果有冲突，解决
+>>* git checkout develop   切换分支
+>>* git merge some-feature   合并分支
+>>* git push        推送分支
+>>* git branch -d some-feature   删除分支
+>>* git checkout -b release-0.1 develop  
+>>* 基于develop建立发布分支，这个分支是清理发布、执行所有测试、更新文档和其它为下个发布做准备操作的地方，像是一个专门用于改善发布的功能分支
+>>* git checkout master
+>>* git merge release-0.1    把发布分支合并到master分支
+>>* git push                   推送
+>>* git checkout develop
+>>* git merge release-0.1        把发布分支合并到develope分支
+>>* git push                  推送
+>>* git branch -d release-0.1   删除发布分支
+>>* 发布分支是作为功能开发（develop分支）和对外发布（master分支）间的缓冲。只要有合并到master分支，就应该打好Tag以方便跟踪。
+>>* git tag -a 0.1 -m "Initial public release" master
+>>* git push --tags
+>>* 发布后，用户发现当前版本的一个Bug。为了处理Bug，要从master分支上拉出一个维护分支，提交修改以解决问题，然后直接合并回master分支：
+>>* git checkout -b issue-#001 master
+>>* git checkout master
+>>* git merge issue-#001
+>>* git push
+>>* 发布分支，维护分支中新加这些重要修改需要包含到develop分支中，所以要执行一个合并操作。然后就可以安全地删除这个分支了
+>>* git checkout develop
+>>* git merge issue-#001
+>>* git push
+>>* git branch -d issue-#001
+
 ### commitzen学习
 
 * 前天装完了nodejs但是今天在cmd里用node -v查看版本发现node不是命令什么的错误，卸载重装之后，还是不行，于是关闭重新启动cmd好了。
@@ -78,6 +115,7 @@
 >4. // 空一行
 >5. <footer>
 >其中，Header 是必需的，Body 和 Footer 可以省略。
+
 >不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。
 
 * type type用于说明Commit的类型，包含一下7种类型
