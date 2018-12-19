@@ -33,9 +33,12 @@
 * git merge --no-ff git默认是采用快速合并，没有合并记录。--no-ff可以设置为普通合并，有记录
 * git remove -v 查看远程主机信息
 * git tag v1.0  在当前分支创建一个标签，默认绑定在最新的commit上。
-* git tag 查看所有标签 
+* git tag 查看所有标签
 * git tag v0.9 commit-id  对指定的commit-id添加标签
 * git show v1.0 查看标签信息
+* git tag -a v1.0 -m'version 0.1 released' commit-id   创建带有说明的标签，用-a指定标签名，-m指定说明文字
+* git tag -d v1.0  删除标签  
+* git push origin :refs/tags/v0.9  从远程删除标签。如果标签推送到远程，本地和远程都要删除一遍
 * 关于“把当前分支合并到XX分支”，理解了之后这句话听起来怪怪的。其实是先切换到XX分支（当然可以顺手再pull一下别人的代码），然后在XX分支上合并你的分支，比如把dev合并到master分支，其实是先git checkout master,再git merge dev.我觉得说成在master分支上把dev合并更容易理解一些。
 * 从远程仓库克隆时，Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
 
