@@ -14,7 +14,24 @@
 * git checkout 分支名    切换分支
 * git remote  对远程主机进行操作，具体记不太清楚了
 * git rebase  把本地未push的分叉提交历史整理成直线。查看历史提交的变化更容易
-* git fetch   记不清
+* git fetch   之前面试有被问到过git fetch和git pull的区别，git pull可以认为是git fetch与git fetch的结合。结合的一些命令更容易理解。
+>* git fetch origin master:temp
+
+在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
+
+>* git pull origin master:dev
+
+取回远程origin仓库的master分支的更新，再与本地的dev分支合并。
+
+>* git fetch
+
+更新所有分支，可以加远程主机名指定主机，也可以再具体指定分支,注意只是取回更新的文件，还要合并后才可以在本地分支上。
+
+>* git pull
+
+当前分支自动与唯一一个追踪分支进行合并
+
+
 * git status 查看状态
 * git diff 查看修改内容
 * git log 查看历史记录
@@ -48,4 +65,38 @@
 
 ### commitzen学习
 
-#### 在第一份实习中是有使用过的，但是当时只是使用，口头交流了一下commit的规则。
+* 前天装完了nodejs但是今天在cmd里用node -v查看版本发现node不是命令什么的错误，卸载重装之后，还是不行，于是关闭重新启动cmd好了。
+* commitizen init cz-conventional-changelog --save --save-exact这个命令在项目目录下运行（.git文件夹下），该项目就会支持
+* 使用git cz命令后会进入插入模式，会用到几个linux命令来操作。i是编辑命令。编辑好之后按esc退出插入模式，然后按冒号":",再“wq”然后回车就可以了。
+  
+#### Commit message 的格式
+
+>每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
+>1. <type>(<scope>): <subject>
+>2. // 空一行
+>3. <body>
+>4. // 空一行
+>5. <footer>
+>其中，Header 是必需的，Body 和 Footer 可以省略。
+>不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。
+
+* type type用于说明Commit的类型，包含一下7种类型
+* feat：新功能（feature）
+* fix：修补bug
+* docs：文档（documentation）
+* style： 格式（不影响代码运行的变动）
+* refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+* test：增加测试
+* chore：构建过程或辅助工具的变动
+  
+#### scope
+
+scope用于说明本次Commit所影响的范围，比如controller、user或者README，视项目的不同而不同
+
+#### subject
+
+subject是本次Commit目的的简短描述，一般不要超过50个字符
+
+    以动词开头，使用第一人称现在时，比如change，而不是changed或changes
+    第一个字母小写
+    结尾不加句号（.）
