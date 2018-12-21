@@ -109,13 +109,14 @@
 #### Commit message 的格式
 
 >每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。
->1. <type>(<scope>): <subject>
->2. // 空一行
->3. <body>
->4. // 空一行
->5. <footer>
->其中，Header 是必需的，Body 和 Footer 可以省略。
 
+1. `<type>(<scope>): <subject>`
+2. // 空一行
+3. `<body>`
+4. // 空一行
+5. `<footer>`
+
+>其中，Header 是必需的，Body 和 Footer 可以省略。
 >不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。
 
 * type type用于说明Commit的类型，包含一下7种类型
