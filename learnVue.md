@@ -15,3 +15,12 @@
 >> 练习的时候发现一直刷新太烦了，想起来之前被安利过的插件Browsersync，就又配置了一下。  有个问题是html文件名要改成index才会有效果。不然就一直cannot get。
 
 * [使用和安装教程](https://www.cnblogs.com/yesyes/p/6156102.html)
+  
+## vue语法
+
+### 生命周期钩子
+
+* created
+* mounted
+* updated
+* destoryed
