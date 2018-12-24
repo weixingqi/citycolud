@@ -127,7 +127,7 @@
 * refactor：重构（即不是新增功能，也不是修改bug的代码变动）
 * test：增加测试
 * chore：构建过程或辅助工具的变动
-  
+
 #### scope
 
 scope用于说明本次Commit所影响的范围，比如controller、user或者README，视项目的不同而不同

@@ -8,13 +8,14 @@
   
 ## 属性含义
 
-* el 选择元素
+* el 选择元素  这个选择器只可以选择一个元素，css选择器可以用多种，如果选择多个元素。只会绑定第一个元素。
   
 ## 前端工具的使用
 
 >> 练习的时候发现一直刷新太烦了，想起来之前被安利过的插件Browsersync，就又配置了一下。  有个问题是html文件名要改成index才会有效果。不然就一直cannot get。
 
-* [使用和安装教程](https://www.cnblogs.com/yesyes/p/6156102.html)
+* [Browsersync使用和安装教程](https://www.cnblogs.com/yesyes/p/6156102.html)
+* [webpack的使用和安装教程](https://www.jianshu.com/p/42e11515c10f)
   
 ## vue语法
 

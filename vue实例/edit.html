@@ -1,0 +1,82 @@
+<!-- 这个实例在谷歌浏览器无法正常工作，包括vue官网上的样例也不能正常工作，但是在火狐浏览器就正常工作了 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked@0.3.6"></script>
+    <script src="https://unpkg.com/lodash@4.16.0"></script>
+    <!-- unpkg 是一个前端常用的公共 CDN，它通过 URL 语法完成了别人 web 界面内才能达到的效果，简洁而优雅，在流行的类库、框架文档中常常能看到它的身影。 -->
+    <!-- Lodash是一个著名的javascript原生库，不需要引入其他第三方依赖。是一个意在提高开发者效率,提高JS原生方法性能的JS库 -->
+    <style>
+        html, body, #editor {
+        margin: 0;
+        height: 100%;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: #333;
+        }
+
+        textarea, #editor div {
+        display: inline-block;
+        width: 49%;
+        height: 100%;
+        vertical-align: top;
+        box-sizing: border-box;
+        padding: 0 20px;
+        }
+
+        textarea {
+        border: none;
+        border-right: 1px solid #ccc;
+        resize: none;
+        outline: none;
+        background-color: #f6f6f6;
+        font-size: 14px;
+        font-family: 'Monaco', courier, monospace;
+        padding: 20px;
+        }
+
+        code {
+        color: #f66;
+        }
+    </style>
+    <title>markdown编辑器</title>
+</head>
+<body>
+    <div id="editor">
+        <!-- v-bind的作用是绑定元素，使得vue可以操作修改。 -->
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events">事件类型一览表</a>
+        <!-- v-on:input,值变化时触发事件
+        v-on:click，点击时触发事件
+        @keyup.enter，输入回车时触发事件 -->
+
+        <textarea :value='input' @input='update'></textarea>
+        <div v-html="compiledMarkdown"></div>
+        <button @click='add'>dianji</button>
+    </div>
+   
+    <script>
+        new Vue({
+        el: '#editor',
+        data: {
+            input: '# hello'
+        },
+        // copmuted是计算属性，与method的区别在于只有依赖属性发生变化时，才会触发执行。依赖属性便是computed中所用到的属性。
+        computed: {
+            compiledMarkdown: function () {
+            return marked(this.input, { sanitize: true })
+            // 如果sanitize为true，则使用sanitizer函数对传递到markdownString的HTML进行清理。
+            }
+        },
+        methods: {
+            update: _.debounce(function (e) {
+            this.input = e.target.value
+            }, 300),
+            add: function(){
+                this.input = this.input.split('').reverse().join('')
+            }
+        }
+        })
+    </script>
+</body>
+</html>

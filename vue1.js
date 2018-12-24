@@ -1,9 +1,7 @@
-var data={a:1}
-var vm = new Vue({
-    data: data
+var pan = new Vue({
+    el: '#pa',
+    data: {
+        rawHtml: '<span style="color:red">HTML代码</span>'
+    }
 })
-// console.log(vm.a);
-// console.log(vm.a==data.a);
-vm.b = 'hi';
-// console.log(vm.b);
-console.log(vm._data)
+

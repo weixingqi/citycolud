@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>Page Title</title>
+	<head>
+		<meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
-    <div id="app7">
-        <ol>
-           <todo-item
-             v-for="item in list"
-             v-bind:todo="item"
-             v-bind:key="item.id">
-           </todo-item>
-         </ol> 
-    </div>
-    <input type="checkbox" id="checkbox" v-model="checked">
-    <label for="checkbox">{{ checked }}</label>
     <script src="vue1.js"></script>
-</body>
+		<title>vuewrite自己写</title>
+	</head>
+	<body>
+        
+            <p id="pa">Using v-html directive: <span v-html="rawHtml"></span></p>
+                  <script>
+                    var pan = new Vue({
+                      el: '#pa',
+                      data: {
+                          rawHtml: '<span style="color:red">HTML代码</span>'
+                      }
+                  })
+                  </script>
+	</body>
 </html>
