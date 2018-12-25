@@ -25,3 +25,15 @@
 * mounted
 * updated
 * destoryed
+
+### 2018/12/24对于vue一点新的的认识
+
+> 前两天看了一些vue语法，本来想在这里记录一些命令的，就像上面的生命周期钩子，然后发现好像不太行，vue和git是不一样的学习方法。不像git很多命令的意思都很清楚明白，容易理解。只是单纯的看和记录，没那么容易明白。vue需要更多的写案例。然后一句一句分析。才能比较好的理解语法。
+
+## 在vue中使用echarts
+
+>之前在项目中有使用过简单的echarts，但是在vue中使用又是不一样的场景。
+百度一下在vue中使用echarts基本都用到了vue-cli。[在vue中使用echarts](https://blog.csdn.net/mr_wuch/article/details/70225364)
+到了vue-cli官网看了一会发现又是基于webpack的，所以还是再了解一下webpack。
+简单按照官网的教程简单打包了一次。好多博客都是webpack123的版本，所以就官网上简单的看一下，以后再了解。
+

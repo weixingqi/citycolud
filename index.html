@@ -6,16 +6,15 @@
     <script src="vue1.js"></script>
 		<title>vuewrite自己写</title>
 	</head>
-	<body>
-        
-            <p id="pa">Using v-html directive: <span v-html="rawHtml"></span></p>
-                  <script>
-                    var pan = new Vue({
-                      el: '#pa',
-                      data: {
-                          rawHtml: '<span style="color:red">HTML代码</span>'
-                      }
-                  })
-                  </script>
+	<body>    
+    <p id="pa">Using v-html directive: <span v-html="rawHtml"></span></p>
+          <script>
+            var pan = new Vue({
+              el: '#pa',
+              data: {
+                  rawHtml: '<span style="color:red">HTML代码</span>'
+              }
+          })
+          </script>
 	</body>
 </html>
